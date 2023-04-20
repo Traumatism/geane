@@ -1,8 +1,6 @@
 from geane.p import P
 
 
-# https://en.wikipedia.org/wiki/Glossary_of_mathematical_symbols
-
 L = [1, 1, 2, 3, 4, 5, 6]
 
 p = P(locals())

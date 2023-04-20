@@ -3,8 +3,9 @@
 Some dumb Python library thats uses Maths notation for writing conditions.
 
 Notes:
-    - this is still in development !
-    - this is vulnerable to code execution through predicate field
+- this is still in development !
+
+- this is vulnerable to code execution through predicate field
 
 ## Examples:
 
