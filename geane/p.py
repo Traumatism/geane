@@ -2,8 +2,7 @@ POUR_TOUT           = 8704
 IL_EXISTE           = 8707
 IL_EXISTE_UN_UNIQUE = -8707
 
-INCLUS           = 8712
-NON_INCLUS       = 8713
+APPARTIENT_A        = 8712
 
 ACCEPT_TABLE = {
     -2: lambda x: False,
@@ -16,7 +15,7 @@ ACCEPT_TABLE = {
         *range(ord("A"), ord("Z") + 1)
     ],
 
-    2: lambda x: x in [INCLUS, NON_INCLUS],
+    2: lambda x: x in [APPARTIENT_A],
 }
 
 
