@@ -104,16 +104,16 @@ class P:
 
         if quantificator == POUR_TOUT:
             for i in range(len(target_set)):
-                exec(f"{target_var}={target_set}[{i}]")
+                self.vars[target_var] = target_set[i]
 
-                if eval(predicate_expr) == False:
+                if eval(predicate_expr, {}, self.vars) == False:
                     return False
 
         elif quantificator == IL_EXISTE:
             for i in range(len(target_set)):
-                exec(f"{target_var}={target_set}[{i}]")
+                self.vars[target_var] = target_set[i]
 
-                if eval(predicate_expr) == True:
+                if eval(predicate_expr, {}, self.vars) == True:
                     return True
 
         elif quantificator == IL_EXISTE_UN_UNIQUE:
@@ -121,9 +121,9 @@ class P:
             found = False
 
             for i in range(len(target_set)):
-                exec(f"{target_var}={target_set}[{i}]")
+                self.vars[target_var] = target_set[i]
 
-                if eval(predicate_expr) == True:
+                if eval(predicate_expr, {}, self.vars) == True:
                     if found == True:
                         return False
 

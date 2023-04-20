@@ -12,16 +12,19 @@ Notes:
 ```python
 from geane.p import P
 
-L = [1, 1, 2, 3, 4, 5, 6]
 
-p = P(locals())  # or P({'L': L})
+def f(x):
+    return x ** 2
 
-assert p.test("∀toto ∈ L, (toto+1) <= 7")
-assert not p.test("∀toto ∈ L, (toto+1) < 7")
+L = [n for n in range(-10_000, 10_000)]
 
-assert p.test("∀x ∈ L, x>0")
-assert p.test("∃x ∈ L, x == 5")
+p = P({"f": f, "L": L})
 
-assert p.test("∃!x ∈ L, x == 5")
-assert not p.test("∃!x∈L, x == 1")
+assert not p.test("∀n ∈ L, n == 0")
+assert p.test("∀n ∈ L, 0 <= f(n) <= f(10000)")
+assert p.test("∀n ∈ L, n <= f(n)")
+
+assert p.test("∃e ∈ L, f(e) == e")
+assert not p.test("∃!e ∈ L, f(e) == e")
+
 ```
